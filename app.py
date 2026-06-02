@@ -8,7 +8,7 @@ base_conhecimento = {
     "formacao": "A formação prepara utilizadores para novos sistemas.",
     "validacao": "A validação garante que o sistema funciona antes da produção.",
     "stage": "O ambiente de stage é usado para testes.",
-    "producao": "O ambiente de produção é onde o sistema é usado pelos utilizadores finais.",
+    "producao": "O ambiente de produção é onde o sistema é usado pelos utilizadores finais."
 }
 
 @app.route("/")
@@ -29,4 +29,6 @@ def chat():
     return jsonify({"response": resposta})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
